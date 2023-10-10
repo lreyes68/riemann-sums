@@ -5,9 +5,22 @@ using namespace std;
 int rightRiemann () {
     float upper, lower, stepNumber, steps;
 
+    cout << "Upper Bound: ";
+    cin >> upper;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Lower Bound: ";
+    cin >> lower;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Number of Sub-intervals: ";
+    cin >> stepNumber;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
 
-    cin >> upper >> lower >> stepNumber;
-    
     steps = (upper - lower) / stepNumber;
     double heightNum, height, newHeight, area, sum;
 
@@ -32,9 +45,22 @@ int rightRiemann () {
 int leftRiemann () {
     float upper, lower, stepNumber, steps;
 
+    cout << "Upper Bound: ";
+    cin >> upper;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Lower Bound: ";
+    cin >> lower;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Number of Sub-intervals: ";
+    cin >> stepNumber;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
 
-    cin >> upper >> lower >> stepNumber;
-    
     steps = (upper - lower) / stepNumber;
     double heightNum, height, newHeight, area, sum;
 
@@ -56,9 +82,25 @@ int leftRiemann () {
 int midpointRiemann () {
     float upper, lower, stepNumber, steps;
 
+    cout << "Upper Bound: ";
+    cin >> upper;
+    if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Lower Bound: ";
+    cin >> lower;
+    if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Number of Sub-intervals: ";
+    cin >> stepNumber;
+    if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
 
-    cin >> upper >> lower >> stepNumber;
-    
     steps = (upper - lower) / stepNumber;
 
     double heightNum1,heightNum2, midpoint, temp, height, sum;
@@ -84,8 +126,21 @@ int midpointRiemann () {
 int trapezoidRiemann () {
     float upper, lower, stepNumber, steps;
 
-
-    cin >> upper >> lower >> stepNumber;
+    cout << "Upper Bound: ";
+    cin >> upper;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Lower Bound: ";
+    cin >> lower;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
+    cout << "Number of Sub-intervals: ";
+    cin >> stepNumber;if (!cin) {
+        cerr << "\033[1;31mNot a Number\033[0m" << endl;
+        return 1;
+    }
     
     steps = (upper - lower) / stepNumber;
 
@@ -111,10 +166,15 @@ int trapezoidRiemann () {
     cout << area << endl;
     return 0;
 }
+
 int main() {
     string type;
     cout << "Type of Riemann Sum: ";
     cin >> type;
+    if (type != "left" && type != "right" && type != "midpoint" && type != "trapezoid"){
+        cerr << "\033[1;31mNot a valid Riemann Sum.\033[0m" << endl;
+        return 1;
+    }
     if (type == "left") {
         leftRiemann();
     }
@@ -126,5 +186,4 @@ int main() {
     }else {
         trapezoidRiemann();
     }
-
 }
