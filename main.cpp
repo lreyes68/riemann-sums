@@ -112,7 +112,19 @@ int trapezoidRiemann () {
     return 0;
 }
 int main() {
-   
-    trapezoidRiemann();
+    string type;
+    cout << "Type of Riemann Sum: ";
+    cin >> type;
+    if (type == "left") {
+        leftRiemann();
+    }
+    else if (type == "right") {
+        rightRiemann();
+    }
+    else if (type == "midpoint") {
+        midpointRiemann();
+    }else {
+        trapezoidRiemann();
+    }
 
 }
